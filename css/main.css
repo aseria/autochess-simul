@@ -1,0 +1,313 @@
+body {
+    color: #ffffff;
+    background-color: #000000;
+    font-size: 20px;
+}
+.species td {
+    width: 90px;
+    height: 90px;
+    padding: 0px;
+}
+.class td {
+    width: 90px;
+    height: 90px;
+    padding: 0px;
+}
+.pieces{
+    max-width: 100%;
+    height: auto;
+    padding: 3px;
+    position: relative;
+    border: 3px;
+}
+.pieces img {
+    width: 100%;
+    opacity: 1;
+}
+.name {
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    text-shadow: -1px 0 #000000, 0 1px #000000, 1px 0 #000000, 0 -1px #000000;
+    position: absolute;
+    bottom: 12px;
+    left: 6px;
+}
+.effect {
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 0px;
+    display: none;
+}
+.trait {
+    vertical-align: top;
+    text-align: center;
+    font-size: 12px;
+    padding: 0px;
+    display: none;
+}
+#elf {
+    width: 90px;
+    color: #2a6392;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#human {
+    width: 90px;
+    color: #b8bcbd;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#beast {
+    width: 90px;
+    color: #00be00;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#goblin {
+    width: 90px;
+    color: #801c1b;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#demon {
+    width: 90px;
+    color: #66178b;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#undead {
+    width: 90px;
+    color: #3c3f41;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#orc {
+    width: 90px;
+    color: #c12629;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#naga {
+    width: 90px;
+    color: #4346c1;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#elementals {
+    width: 90px;
+    color: #b7ba35;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#troll {
+    width: 90px;
+    color: #8f8d64;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#dragon {
+    width: 90px;
+    color: #e70a0f;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#dwarf {
+    width: 90px;
+    color: #ab6043;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#satyr {
+    width: 90px;
+    color: #343181;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#ogre {
+    width: 90px;
+    color: #357788;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#assassin {
+    width: 90px;
+    color: #f3e46e;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#warrior {
+    width: 90px;
+    color: #9d9283;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#mage {
+    width: 90px;
+    color: #6da6b4;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#warlock {
+    width: 90px;
+    color: #797899;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#hunter {
+    width: 90px;
+    color: #71c891;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#knight {
+    width: 90px;
+    color: #b98da1;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#mech {
+    width: 90px;
+    color: #816a2f;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#druid {
+    width: 90px;
+    color: #8e5428;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#demonhunter {
+    width: 90px;
+    color: #442a5c;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+#shaman {
+    width: 90px;
+    color: #1b3fa6;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: 900;
+    text-shadow: none;
+}
+
+.cost_1 img {
+    border: 3px solid #ffffff;
+}
+.cost_2 img {
+    border: 3px solid #888888;
+}
+.cost_3 img {
+    border: 3px solid #463fe0;
+}
+.cost_4 img {
+    border: 3px solid #ec10f0;
+}
+.cost_5 img {
+    border: 3px solid #f38b19;
+}
+
+.trait_tooltip {
+    color:black;
+    text-shadow: -3px 0 5px #ffffff, 0 3px 5px #ffffff, 3px 0 5px #ffffff, 0 -3px 5px #ffffff;
+}
+
+
+[data-tooltip-text]:hover {
+    position: relative;
+}
+
+[data-tooltip-text]:after {
+    -webkit-transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+    -moz-transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+    transition: bottom .3s ease-in-out, opacity .3s ease-in-out;
+
+    -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+    box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-weight:900;
+
+    color: #fffff;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    position: absolute;
+    width: auto;
+    min-width: 500px;
+    max-width: 3000px;
+    word-wrap: break-word;
+    text-align: left;
+
+    z-index: 9999;
+
+    opacity: 0;
+    left: -9999px;
+    top: 90%;
+
+    content: attr(data-tooltip-text);
+}
+
+[data-tooltip-text]:hover:after {
+    top: 130%;
+    left: 0;
+    opacity: 1;
+}
+
+
+.refresh_btn {
+    border: none;
+    width: 50px;
+    height:50px;
+    background-image: url("/img/refresh.png") no-repeat;
+}

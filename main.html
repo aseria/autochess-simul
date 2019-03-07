@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CSS area -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/tier.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135270720-1"></script>
+
+    <!-- Local script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="script/main.js"></script>
+    <!--<script src="script/tier.js"></script>-->
+    <script src="script/simul.js"></script>
+
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-135270720-1');
+
+      $( document ).ready(function() {
+        // addMark();
+        $(".refresh").click(function() {
+          location.reload();
+        })
+      })
+
+      function disp_char(info) {
+        var cost = info[1]
+        var name = info[0][0];
+        var kname = info[0][0];
+        var class_type = info[0][1] + " " + info[0][2]
+        $(".roulette").append("<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
+                ".png><div class=\"name\"><span data-tooltip-text=\"" + kname + "\">" +
+                class_type + "</span></div></div></td>")
+      }
+
+
+      function reloll() {
+        $(".roulette").empty();
+        $(".roulette").append("<td><button name=\"리롤\" style=\"margin-left:30px; font-size:50px\" onclick=\"reloll()\">리롤</td>");
+        var level = Number($("#cur_level").val());
+        get_roll(level, disp_char)
+      }
+	</script>
+
+    <title>도타2 오토체스 시뮬레이터</title>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+  <div style="float: right;display: inline; text-align: center;">Dcinside 체크메이트 갤러리 제작 - 이십사에시간</div><br><b>
+
+    </b><br>
+    <table style="display:inline;">
+      Level : <input type="text" id="cur_level"><br>
+      <tr class=" roulette"> <!-- CLASS species 추가하기-->
+        <td><button name="리롤" style="margin-left:30px; font-size:50px" onclick="reloll()">리롤</td>
+      </tr>
+    </table>
+  </body>
+</html>

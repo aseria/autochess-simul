@@ -1,0 +1,43 @@
+
+.tier {
+    text-align: right;
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: 0;
+    font-size: 28px;
+;
+}
+
+.tier_sss {
+    color : #A14E4F
+}
+
+.tier_ss {
+    color : #FFBB77
+}
+
+
+.tier_s {
+    color : #FFDD84
+}
+
+.tier_a {
+    color : #807EFF
+}
+
+.tier_b {
+    color : #7DBFFF
+}
+
+.tier_c {
+    color : #F7F7F7
+}
+
+.tier_d {
+    color : #838383
+}
+
+.tier_f {
+    color : #FFFFFF
+}
