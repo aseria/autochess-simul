@@ -18,6 +18,54 @@
 
     <title>도타2 오토체스 시뮬레이터</title>
     <meta charset="utf-8"/>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-135270720-1');
+      function disp_char(infos) {
+        var divs = ""
+        for(var i=0;i <infos.length; i++) {
+          var info = infos[i];
+          var cost = info[1];
+          var name = info[0][0];
+          var kname = info[0][0];
+          var class_type = info[0][1] + " " + info[0][2]
+          divs += "<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
+                  ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
+                  kname + "</span></div></div></td>";
+        }
+        $(".roulette").append(divs);
+      }
+      function reloll() {
+        var level = Number($("#cur_level")[0].innerText);
+        $(".roulette").empty();
+        get_roll(level, disp_char)
+      }
+
+      var xp = 0;
+      function levelup() {
+        //gold
+        var cur_gold = $("#gold_value")[0].innerText;
+        cur_gold -= 5
+        $("#gold_value")[0].innerText = cur_gold;
+        //
+        xp += 4;
+        var info = get_level_info(xp)
+        var level = info[0]
+        var circle_p = info[1];
+        $("#cur_level")[0].innerText = level;
+        //get pclass
+        var classes = $(".circle-area > div").attr("class").split(" ");
+        var target_p = classes.filter(x=>x.startsWith("p"))[0];
+
+        $(".circle-area > div").removeClass(target_p);
+        $(".circle-area > div").addClass("p" + circle_p);
+      }
+
+
+
+    </script>
   </head>
   <body>
 
@@ -70,52 +118,5 @@
       <tr></tr>
     </table>
   </body>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-135270720-1');
-    function disp_char(infos) {
-      var divs = ""
-      for(var i=0;i <infos.length; i++) {
-        var info = infos[i];
-        var cost = info[1];
-        var name = info[0][0];
-        var kname = info[0][0];
-        var class_type = info[0][1] + " " + info[0][2]
-        divs += "<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
-                ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
-                kname + "</span></div></div></td>";
-      }
-      $(".roulette").append(divs);
-    }
-    function reloll() {
-      var level = Number($("#cur_level")[0].innerText);
-      $(".roulette").empty();
-      get_roll(level, disp_char)
-    }
 
-    var xp = 0;
-    function levelup() {
-      //gold
-      var cur_gold = $("#gold_value")[0].innerText;
-      cur_gold -= 5
-      $("#gold_value")[0].innerText = cur_gold;
-      //
-      xp += 4;
-      var info = get_level_info(xp)
-      var level = info[0]
-      var circle_p = info[1];
-      $("#cur_level")[0].innerText = level;
-      //get pclass
-      var classes = $(".circle-area > div").attr("class").split(" ");
-      var target_p = classes.filter(x=>x.startsWith("p"))[0];
-
-      $(".circle-area > div").removeClass(target_p);
-      $(".circle-area > div").addClass("p" + circle_p);
-    }
-
-
-
-  </script>
 </html>
