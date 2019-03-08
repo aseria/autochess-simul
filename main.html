@@ -4,6 +4,7 @@
     <!-- CSS area -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/tier.css">
+    <link rel="stylesheet" type="text/css" href="css/circle.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135270720-1"></script>
 
@@ -15,56 +16,106 @@
     <!--<script src="script/tier.js"></script>-->
     <script src="script/simul.js"></script>
 
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-135270720-1');
-
-      $( document ).ready(function() {
-        // addMark();
-        $(".refresh").click(function() {
-          location.reload();
-        })
-      })
-
-      function disp_char(infos) {
-        var divs = ""
-        for(var i=0;i <infos.length; i++) {
-          var info = infos[i];
-          var cost = info[1];
-          var name = info[0][0];
-          var kname = info[0][0];
-          var class_type = info[0][1] + " " + info[0][2]
-          divs += "<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
-                  ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
-                  kname + "</span></div></div></td>";
-        }
-        $(".roulette").append(divs);
-      }
-
-
-      function reloll() {
-        $(".roulette").empty();
-        $(".roulette").append("<td><button name=\"리롤\" style=\"margin-left:30px; font-size:50px\" onclick=\"reloll()\">리롤</td>");
-        var level = Number($("#cur_level").val());
-        get_roll(level, disp_char)
-      }
-	</script>
-
     <title>도타2 오토체스 시뮬레이터</title>
     <meta charset="utf-8"/>
   </head>
   <body>
-  <div style="float: right;display: inline; text-align: center;">Dcinside 체크메이트 갤러리 제작 - 이십사에시간</div><br><b>
 
-    </b><br>
-    <table style="display:inline;">
-      Level : <input type="text" id="cur_level"> 1 <br>
-      <tr class=" roulette"> <!-- CLASS species 추가하기-->
-        <td><button name="리롤" style="margin-left:30px; font-size:50px" onclick="reloll()">리롤</td>
+  <div style="float: right;display: inline; text-align: center;">Dcinside 체크메이트 갤러리 제작 - 이십사에시간</div><br>
+    <table class info>
+      <tr>
+        <td><button class="reroll-btn" onclick="reloll()"></button></td>
+        <td><button class="levelup-btn" onclick="levelup()"></button></td>
+        <td>
+          <div class="gold-area">
+            <img src="img/gold.png" align="middle"/>
+          </div>
+        </td>
+        <td>
+          <div id="gold_value"> 300 </div>
+        </td>
+        <td><div class="level-area">Level : </div></td>
+        <td class="circle-area">
+          <div class="c100 p0 small orange">
+            <span id="cur_level">1</span>
+            <div class="slice">
+              <div class="bar"></div>
+              <div class="fill"></div>
+            </div>
+          </div>
+        </td>
       </tr>
     </table>
+
+
+
+
+
+    <table style="display:inline;">
+
+      <tr class=" roulette"> <!-- CLASS species 추가하기-->
+        <td><div class="pieces"> <img src="img\blank.png"></div></td>
+      </tr>
+      <tr><td>체스판 - 미구현 </td></tr>
+      <tr class = "chessboard">
+        <td><div class="pieces"> <img src="img\blank.png"></div></td>
+      </tr>
+      <tr><td>창고 - 미구현</td></tr>
+      <tr class="warehouse"></tr>
+        <td><div class="pieces"> <img src="img\blank.png"></div></td>
+      <tr>
+
+      </tr>
+      <tr></tr>
+      <tr></tr>
+    </table>
   </body>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-135270720-1');
+    function disp_char(infos) {
+      var divs = ""
+      for(var i=0;i <infos.length; i++) {
+        var info = infos[i];
+        var cost = info[1];
+        var name = info[0][0];
+        var kname = info[0][0];
+        var class_type = info[0][1] + " " + info[0][2]
+        divs += "<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
+                ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
+                kname + "</span></div></div></td>";
+      }
+      $(".roulette").append(divs);
+    }
+    function reloll() {
+      var level = Number($("#cur_level")[0].innerText);
+      $(".roulette").empty();
+      get_roll(level, disp_char)
+    }
+
+    var xp = 0;
+    function levelup() {
+      //gold
+      var cur_gold = $("#gold_value")[0].innerText;
+      cur_gold -= 5
+      $("#gold_value")[0].innerText = cur_gold;
+      //
+      xp += 4;
+      var info = get_level_info(xp)
+      var level = info[0]
+      var circle_p = info[1];
+      $("#cur_level")[0].innerText = level;
+      //get pclass
+      var classes = $(".circle-area > div").attr("class").split(" ");
+      var target_p = classes.filter(x=>x.startsWith("p"))[0];
+
+      $(".circle-area > div").removeClass(target_p);
+      $(".circle-area > div").addClass("p" + circle_p);
+    }
+
+
+
+  </script>
 </html>

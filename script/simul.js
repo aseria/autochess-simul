@@ -136,6 +136,34 @@ function disp_char(info) {
     console.log(r);
 }
 
-get_roll(4, disp_char);
+
+
+
+// 여기서 부터 레벨관련
+
+var LEVEL_XP = [
+    0, 1, 2, 4, 8, 16, 32, 56, 88, 128
+];
+
+var LEVEL_TOTAL = [
+    0, 1, 1, 2, 4, 8, 16, 24, 32, 40
+];
+
+function get_level_info(xp) {
+    var ldx = 10;
+
+    for(var i=0; i<LEVEL_XP.length; i++) {
+        if(xp < LEVEL_XP[i]) {
+            ldx = i;
+            break;
+        }
+    }
+    if(ldx < 10) {
+        var circle_p = Math.floor((xp-LEVEL_XP[i-1])/LEVEL_TOTAL[i] * 100);
+    } else {
+        var circle_p = 100;
+    }
+    return [ldx, circle_p]
+}
 
 

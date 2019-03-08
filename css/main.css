@@ -3,6 +3,47 @@ body {
     background-color: #000000;
     font-size: 20px;
 }
+.reroll-btn {
+    background-image: url( ../img/reroll.png );
+    background-size: 80px 80px;
+    height: 80px;
+    width: 80px;
+    border: 0px;
+}
+
+.levelup-btn {
+    background-image: url( ../img/levelup.png );
+    background-size: 80px 80px;
+    height: 80px;
+    width: 80px;
+    border: 0px;
+}
+
+.level-area {
+    padding-left: 2em;
+    font-size: 2em;
+}
+
+.level-area span {
+    color: rgba(218, 183, 74, 0.96);
+}
+.gold-area {
+    padding-left: 1em;
+    width: 70px;
+}
+
+.gold-area img {
+    width: 50px;
+}
+
+#gold_value {
+    font-size: 2em;
+    color: #ffffff;
+}
+
+.circle-area {
+    padding-left: 1em;
+}
 .species td {
     width: 90px;
     height: 90px;
