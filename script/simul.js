@@ -117,9 +117,11 @@ function get_char(cost) {
     return [CHARS[cost][n], cost+1];
 }
 function get_roll(level, f) {
+    var r = [];
     for(var i=0; i<5; i++) {
-        f(get_char(get_char_cost(level-1)));
+        r.push(get_char(get_char_cost(level-1)));
     }
+    f(r);
 }
 
 function disp_char(info) {

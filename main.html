@@ -29,14 +29,19 @@
         })
       })
 
-      function disp_char(info) {
-        var cost = info[1]
-        var name = info[0][0];
-        var kname = info[0][0];
-        var class_type = info[0][1] + " " + info[0][2]
-        $(".roulette").append("<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
-                ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
-                kname + "</span></div></div></td>")
+      function disp_char(infos) {
+        var divs = ""
+        for(var i=0;i <infos.length; i++) {
+          var info = infos[i];
+          var cost = info[1];
+          var name = info[0][0];
+          var kname = info[0][0];
+          var class_type = info[0][1] + " " + info[0][2]
+          divs += "<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
+                  ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
+                  kname + "</span></div></div></td>";
+        }
+        $(".roulette").append(divs);
       }
 
 
