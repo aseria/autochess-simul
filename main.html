@@ -24,22 +24,31 @@
       gtag('js', new Date());
       gtag('config', 'UA-135270720-1');
       function disp_char(infos) {
-        var divs = ""
         for(var i=0;i <infos.length; i++) {
           var info = infos[i];
           var cost = info[1];
           var name = info[0][0];
           var kname = info[0][0];
           var class_type = info[0][1] + " " + info[0][2]
-          divs += "<td><div class=\"pieces cost_" + cost + " " + name + "\"><img src=pieces\\" + name +
-                  ".png><div class=\"name\"><span data-tooltip-text=\"" + class_type + "\">" +
-                  kname + "</span></div></div></td>";
+
+          var table_idx = i+1
+          var div = $("body > table:nth-child(4) > tbody > tr.roulette > td:nth-child(" + table_idx + ") > div");
+          div.removeClass();
+          div.addClass("pieces");
+          div.addClass("cost_" + cost);
+          div.addClass(name);
+          //image change
+          var img = $("body > table:nth-child(4) > tbody > tr.roulette > td:nth-child(" + table_idx +") > div > img");
+          console.dir(img)
+          img[0].src="pieces/" + name + ".png";
+          var n = $("body > table:nth-child(4) > tbody > tr.roulette > td:nth-child(" + table_idx + ") > div > div > span");
+          n.attr('data-tooltip-text',class_type);
+          n[0].innerText = name;
         }
-        $(".roulette").append(divs);
       }
       function reloll() {
         var level = Number($("#cur_level")[0].innerText);
-        $(".roulette").empty();
+        // $(".roulette").empty();
         get_roll(level, disp_char)
       }
 
@@ -102,15 +111,19 @@
     <table style="display:inline;">
 
       <tr class=" roulette"> <!-- CLASS species 추가하기-->
-        <td><div class="pieces"> <img src="img\blank.png"></div></td>
+        <td><div class="pieces"><img src="img/blank.png"><div class="name"><span data-tooltip-text=""></span></div></div></td>
+        <td><div class="pieces"><img src="img/blank.png"><div class="name"><span data-tooltip-text=""></span></div></div></td>
+        <td><div class="pieces"><img src="img/blank.png"><div class="name"><span data-tooltip-text=""></span></div></div></td>
+        <td><div class="pieces"><img src="img/blank.png"><div class="name"><span data-tooltip-text=""></span></div></div></td>
+        <td><div class="pieces"><img src="img/blank.png"><div class="name"><span data-tooltip-text=""></span></div></div></td>
       </tr>
       <tr><td>체스판 - 미구현 </td></tr>
       <tr class = "chessboard">
-        <td><div class="pieces"> <img src="img\blank.png"></div></td>
+        <td><div class="pieces"> <img src="img/blank.png"></div></td>
       </tr>
       <tr><td>창고 - 미구현</td></tr>
       <tr class="warehouse"></tr>
-        <td><div class="pieces"> <img src="img\blank.png"></div></td>
+        <td><div class="pieces"> <img src="img/blank.png"></div></td>
       <tr>
 
       </tr>
