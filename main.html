@@ -46,18 +46,22 @@
           n[0].innerText = name;
         }
       }
+      function spend_gold(g) {
+        var cur_gold = $("#gold_value")[0].innerText;
+        cur_gold -= g
+        $("#gold_value")[0].innerText = cur_gold;
+      }
       function reloll() {
         var level = Number($("#cur_level")[0].innerText);
         // $(".roulette").empty();
+        spend_gold(2);
         get_roll(level, disp_char)
       }
 
       var xp = 0;
       function levelup() {
         //gold
-        var cur_gold = $("#gold_value")[0].innerText;
-        cur_gold -= 5
-        $("#gold_value")[0].innerText = cur_gold;
+        spend_gold(5);
         //
         xp += 4;
         var info = get_level_info(xp)
